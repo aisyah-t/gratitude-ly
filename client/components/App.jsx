@@ -12,7 +12,6 @@ const App = () => {
     <Route exact path="/" component={Home}/>
     <Route exact path="/prompts" component={About}/>
     <Route exact path="/prompts" component={Prompts}/>
-    {/* <Route path="/prompts/:id" component={Prompts}/> */}
     </div>
     </Router>
   )

@@ -62,17 +62,13 @@ class Prompts extends React.Component {
     render() {
 
         return (
-            <div className="row">
+            <React.Fragment>
                 {promptsData.map((element, i) => {
                     return <div className="twelve columns" style={this.state} key={i} id={element.id}>
                         <h5>{element.prompt}</h5>
                 </div> 
                 })}
-                    {/* Create a div for prompts boxes */ }
-                    {/* Loop over array in prompts.js */ }
-                    {/* Place prompt in each div */ }
-                    {/* Style each prompt div -  look for styling in CSS files */ }
-            </div>
+            </React.Fragment>
         )
     }
 }
