@@ -58,5 +58,6 @@ const prompts = [
         prompt: "What elements of nature are you grateful for and why?"
 
     },
-    
 ]
+
+export default prompts
