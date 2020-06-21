@@ -1,6 +1,5 @@
 import React from 'react'
 import Home from './Home'
-import About from './About'
 import Prompts from './Prompts'
 import { HashRouter as Router, Route } from 'react-router-dom'
 
@@ -8,11 +7,10 @@ import { HashRouter as Router, Route } from 'react-router-dom'
 const App = () => {
   return (
     <Router>
-    <div className="container">
+    {/* <div className="rows"> */}
     <Route exact path="/" component={Home}/>
-    <Route exact path="/prompts" component={About}/>
     <Route exact path="/prompts" component={Prompts}/>
-    </div>
+    {/* </div> */}
     </Router>
   )
 }

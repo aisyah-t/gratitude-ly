@@ -1,4 +1,5 @@
 import React from 'react'
+import About from './About'
 import promptsData from '../../data/prompts'
 import { Link } from 'react-router-dom'
 
@@ -55,20 +56,21 @@ class Prompts extends React.Component {
         height: '11rem',
         display: 'inline-block',
         alignItems: 'center',
-        margin: '2rem',
+        margin: '2rem 0',
         padding: '2rem'
     }
 
     render() {
 
         return (
-            <React.Fragment>
+            <section className="container">
+                <About/>
                 {promptsData.map((element, i) => {
-                    return <div className="twelve columns" style={this.state} key={i} id={element.id}>
+                    return <div className="columns" style={this.state} key={i} id={element.id}>
                         <h5>{element.prompt}</h5>
                 </div> 
                 })}
-            </React.Fragment>
+            </section>
         )
     }
 }
