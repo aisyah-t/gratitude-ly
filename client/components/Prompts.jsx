@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
  * @param  {Array} array The array to shuffle
  * @return {String}      The first item in the shuffled array
  */
-var shuffle = function (array) {
+const shuffle = function (array) {
 
     var currentIndex = array.length;
     var temporaryValue, randomIndex;
@@ -34,7 +34,7 @@ var shuffle = function (array) {
  * Pick a random color for a list
  * @return {String} The color
  */
-var randomColor = function () {
+const randomColor = function () {
 
     // The available colors
     var colors = ['peachpuff', 'lightblue', 'thistle', 'darkseagreen'];
@@ -64,11 +64,11 @@ class Prompts extends React.Component {
 
         return (
             <section className="container">
-                <About/>
+                <About />
                 {promptsData.map((element, i) => {
                     return <div className="columns" style={this.state} key={i} id={element.id}>
-                        <h5>{element.prompt}</h5>
-                </div> 
+                        <h5><strong><Link to={`prompts/${element.id}`}>{element.prompt}</Link></strong></h5>
+                    </div>
                 })}
             </section>
         )
