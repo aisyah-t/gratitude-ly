@@ -28,7 +28,7 @@ class AddEntry extends React.Component {
                     <label></label>
                     <textarea name="entry" value={this.state.entry} onChange={this.handleChange} />
                 </form>
-                <button onClick={this.handleClick}>ADD ENTRY</button>
+                <Link to="/entries"><button onClick={this.handleClick} type="submit">ADD ENTRY</button></Link>
             </>
         )
     }
