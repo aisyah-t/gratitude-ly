@@ -1,5 +1,4 @@
 import React from 'react'
-// import promptsData from '../../data/prompts'
 import AddEntry from './AddEntry'
 
 /**
