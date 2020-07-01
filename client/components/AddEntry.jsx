@@ -11,6 +11,8 @@ class AddEntry extends React.Component {
     handleClick = (evt) => {
         evt.preventDefault()
         console.log('STATE.ENTRY IS: ' + this.state.entry)
+        //Save the data
+        //Then 
     }
 
     handleChange = (evt) => {

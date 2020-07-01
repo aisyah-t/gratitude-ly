@@ -1,5 +1,5 @@
 import React from 'react'
-import promptsData from '../../data/prompts'
+// import promptsData from '../../data/prompts'
 import AddEntry from './AddEntry'
 
 /**
@@ -61,13 +61,13 @@ class ChosenPrompt extends React.Component {
 
     render() {
         let id = this.props.match.params.id
-        //console.log(id)
-        let chosen = promptsData.find(prompt => prompt.id == id)
-        // console.log(chosen)
+        console.log(id)
+        let chosen = this.props.prompts.find(prompt => prompt.id == id)
+        console.log(chosen)
 
         return (
             <section className="container" style={styles}>
-                    <h5><strong>{chosen.prompt}</strong></h5>
+                    {chosen && <h5><strong>{chosen.prompt}</strong></h5>}
                     <AddEntry />
             </section>
         )

@@ -1,6 +1,5 @@
 import React from 'react'
 import About from './About'
-import promptsData from '../../data/prompts'
 import { Link } from 'react-router-dom'
 
 /**
@@ -65,7 +64,7 @@ class Prompts extends React.Component {
         return (
             <section className="container">
                 <About />
-                {promptsData.map((element, i) => {
+                {this.props.prompts.map((element, i) => {
                     return <div className="columns" style={this.state} key={i} id={element.id}>
                         <h5><strong><Link to={`prompts/${element.id}`}>{element.prompt}</Link></strong></h5>
                     </div>
