@@ -60,14 +60,16 @@ class Prompts extends React.Component {
     }
 
     render() {
-
+        // console.log(this.props)
         return (
             <section className="container">
                 <About />
                 {this.props.prompts.map((element, i) => {
-                    return <div className="columns" style={this.state} key={i} id={element.id}>
+                    return (
+                    <div className="columns" style={this.state} key={i} id={element.id}>
                         <h5><strong><Link to={`prompts/${element.id}`}>{element.prompt}</Link></strong></h5>
                     </div>
+                    )
                 })}
             </section>
         )

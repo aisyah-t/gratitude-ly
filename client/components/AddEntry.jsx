@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { addEntry } from '../apis/api'
 
 
 class AddEntry extends React.Component {
@@ -10,9 +11,9 @@ class AddEntry extends React.Component {
 
     handleClick = (evt) => {
         evt.preventDefault()
-        console.log('STATE.ENTRY IS: ' + this.state.entry)
-        //Save the data
-        //Then 
+        addEntry(this.state.entry)
+        .then()
+        //Need to figure out how to redirect to entries page so user can see entry has been added
     }
 
     handleChange = (evt) => {

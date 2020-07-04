@@ -1,28 +1,9 @@
-# A starter webpack project for React
+# Personal Project for Phase 2 of Enspiral Dev Academy Web Development Bootcamp
 
-This is a starter project that uses webpack to transpile and bundle ES6 React code. To use, consider these steps:
+## Gratitude-ly
 
-* Fork this repo
-* Rename your repo according to the app you're building
+During Phase 2 of the Web Development bootcamp at EDA I decided to create a prompt-based gratitude journal web app called Gratitude-ly. The aim is for a user to be able to choose a prompt to write their gratitude journal entry for. The entries will be stored in an internal database accessible only to the individual user, just like a written journal.
 
-```sh
-git clone https://github.com/[your-account]/[your-app].git
-cd [your-app] && npm i
-```
+The project is still a work in progress. It is a full-strack project utilising React, Knex, Express and Skeleton CSS.
 
-To start the development server with a watcher that rebuilds your code, run `npm run dev`. The assets built by webpack are placed in `server/public`. This folder is defined as a static folder in an Express.js server that can be started with `npm run server`.
-
-Additional components should be placed in `client/components`.
-
-## Separate client/server
-
-The boilerplate is also set up to host the client using `webpack-dev-server` with hot module reloading etc. To use this method, in one terminal run:
-```sh
-npm run client
-```
-and in the other:
-```sh
-npm run server
-```
-The client will be available on http://localhost:8080 and the server on http://localhost:3000. Note that you will still need to manage CORS between the two, as they are on different ports.
-
+I will continue to work on this project to bring it up to Minimum Viable Product stage and to include stretch features over the upcoming weeks.

@@ -13,10 +13,10 @@ class App extends React.Component {
   }
 
   componentDidMount = () => {
-    console.log('no prompts')
+    // console.log('no prompts')
     getPrompts()
     .then(prompts => {
-    console.log('got prompts')
+    // console.log('got prompts')
     this.setState ({
         prompts: prompts
       })

@@ -60,9 +60,9 @@ class ChosenPrompt extends React.Component {
 
     render() {
         let id = this.props.match.params.id
-        console.log(id)
+        // console.log('PARAMS.MATCH.ID is: ' + id)
         let chosen = this.props.prompts.find(prompt => prompt.id == id)
-        console.log(chosen)
+        // console.log('USER HAS CHOSEN PROMPT ID ' + chosen)
 
         return (
             <section className="container" style={styles}>
