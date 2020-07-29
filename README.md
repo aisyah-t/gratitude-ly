@@ -1,4 +1,4 @@
-# Personal Project for Phase 2 of Enspiral Dev Academy Web Development Bootcamp
+# Personal Project for Phase 2 of Enspiral Dev Academy
 
 ## Gratitude-ly
 
