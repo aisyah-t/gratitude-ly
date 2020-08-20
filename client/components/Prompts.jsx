@@ -25,7 +25,7 @@ class Prompts extends React.Component {
   render() {
     // console.log(this.props)
     return (
-      <section className="container">
+      <main className="container">
         <About />
         <p>test</p>
         {/* {this.state.promptChosen ? 
@@ -47,7 +47,7 @@ class Prompts extends React.Component {
                     )
                 })}
                 } */}
-      </section>
+      </main>
     )
   }
 }
