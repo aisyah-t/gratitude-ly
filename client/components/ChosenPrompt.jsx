@@ -1,5 +1,5 @@
-import React from 'react'
-import AddEntry from './AddEntry'
+import React from "react"
+import AddEntry from "./AddEntry"
 
 /**
  * Randomly shuffle an array
@@ -8,24 +8,22 @@ import AddEntry from './AddEntry'
  * @return {String}      The first item in the shuffled array
  */
 const shuffle = function (array) {
+  var currentIndex = array.length
+  var temporaryValue, randomIndex
 
-    var currentIndex = array.length;
-    var temporaryValue, randomIndex;
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex)
+    currentIndex -= 1
 
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
-        // Pick a remaining element...
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex]
+    array[currentIndex] = array[randomIndex]
+    array[randomIndex] = temporaryValue
+  }
 
-        // And swap it with the current element.
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
-
-    return array;
-
+  return array
 }
 
 /**
@@ -33,44 +31,45 @@ const shuffle = function (array) {
  * @return {String} The color
  */
 const randomColor = function () {
+  // The available colors
+  var colors = ["peachpuff", "lightblue", "thistle", "darkseagreen"]
 
-    // The available colors
-    var colors = ['peachpuff', 'lightblue', 'thistle', 'darkseagreen'];
+  // Shuffle the colors
+  shuffle(colors)
 
-    // Shuffle the colors
-    shuffle(colors);
-
-    // Grab the first one
-    return colors[0];
-
+  // Grab the first one
+  return colors[0]
 }
 
 const styles = {
-    backgroundColor: randomColor(),
-    borderRadius: '10px',
-    height: '52rem',
-    display: 'inline-block',
-    alignItems: 'center',
-    margin: '2rem 0',
-    padding: '2rem'
+  backgroundColor: randomColor(),
+  borderRadius: "10px",
+  height: "52rem",
+  display: "inline-block",
+  alignItems: "center",
+  margin: "2rem 0",
+  padding: "2rem",
 }
 
 // const ChosenPrompt = (props) => {
 class ChosenPrompt extends React.Component {
+  render() {
+    let id = this.props.match.params.id
+    // console.log('PARAMS.MATCH.ID is: ' + id)
+    let chosen = this.props.prompts.find((prompt) => prompt.id == id)
+    // console.log('USER HAS CHOSEN PROMPT ID ' + chosen)
 
-    render() {
-        let id = this.props.match.params.id
-        // console.log('PARAMS.MATCH.ID is: ' + id)
-        let chosen = this.props.prompts.find(prompt => prompt.id == id)
-        // console.log('USER HAS CHOSEN PROMPT ID ' + chosen)
-
-        return (
-            <section className="container" style={styles}>
-                    {chosen && <h5><strong>{chosen.prompt}</strong></h5>}
-                    <AddEntry />
-            </section>
-        )
-    }
+    return (
+      <section className="container" style={styles}>
+        {chosen && (
+          <h5>
+            <strong>{chosen.prompt}</strong>
+          </h5>
+        )}
+        <AddEntry />
+      </section>
+    )
+  }
 }
 
 export default ChosenPrompt

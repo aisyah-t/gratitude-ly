@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 
 /**
  * Randomly shuffle an array
@@ -7,24 +7,22 @@ import React from 'react'
  * @return {String}      The first item in the shuffled array
  */
 const shuffle = function (array) {
+  var currentIndex = array.length
+  var temporaryValue, randomIndex
 
-    var currentIndex = array.length;
-    var temporaryValue, randomIndex;
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex)
+    currentIndex -= 1
 
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
-        // Pick a remaining element...
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex]
+    array[currentIndex] = array[randomIndex]
+    array[randomIndex] = temporaryValue
+  }
 
-        // And swap it with the current element.
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
-
-    return array;
-
+  return array
 }
 
 /**
@@ -32,39 +30,34 @@ const shuffle = function (array) {
  * @return {String} The color
  */
 const randomColor = function () {
+  // The available colors
+  var colors = ["peachpuff", "lightblue", "thistle", "darkseagreen"]
 
-    // The available colors
-    var colors = ['peachpuff', 'lightblue', 'thistle', 'darkseagreen'];
+  // Shuffle the colors
+  shuffle(colors)
 
-    // Shuffle the colors
-    shuffle(colors);
-
-    // Grab the first one
-    return colors[0];
-
+  // Grab the first one
+  return colors[0]
 }
 
-
 class Prompts extends React.Component {
+  state = {
+    backgroundColor: randomColor(),
+    borderRadius: "10px",
+    height: "",
+    display: "inline-block",
+    alignItems: "center",
+    margin: "2rem 0",
+    padding: "2rem",
+  }
 
-    state = {
-        backgroundColor: randomColor(),
-        borderRadius: '10px',
-        height: '',
-        display: 'inline-block',
-        alignItems: 'center',
-        margin: '2rem 0',
-        padding: '2rem'
-    }
-
-    render() {
-
-        return (
-            <section className="container" style={this.state}>
-                <h5>This is the entry placeholder</h5>
-            </section>
-        )
-    }
+  render() {
+    return (
+      <section className="container" style={this.state}>
+        <h5>This is the entry placeholder</h5>
+      </section>
+    )
+  }
 }
 
 export default Prompts

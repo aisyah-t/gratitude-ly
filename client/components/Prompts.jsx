@@ -1,6 +1,7 @@
 import React from 'react'
 import About from './About'
 import { Link } from 'react-router-dom'
+import ChosenPrompt from './ChosenPrompt'
 
 /**
  * Randomly shuffle an array
@@ -10,22 +11,22 @@ import { Link } from 'react-router-dom'
  */
 const shuffle = function (array) {
 
-    var currentIndex = array.length;
-    var temporaryValue, randomIndex;
+    var currentIndex = array.length
+    var temporaryValue, randomIndex
 
     // While there remain elements to shuffle...
     while (0 !== currentIndex) {
         // Pick a remaining element...
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
+        randomIndex = Math.floor(Math.random() * currentIndex)
+        currentIndex -= 1
 
         // And swap it with the current element.
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
+        temporaryValue = array[currentIndex]
+        array[currentIndex] = array[randomIndex]
+        array[randomIndex] = temporaryValue
     }
 
-    return array;
+    return array
 
 }
 
@@ -36,13 +37,13 @@ const shuffle = function (array) {
 const randomColor = function () {
 
     // The available colors
-    var colors = ['peachpuff', 'lightblue', 'thistle', 'darkseagreen'];
+    var colors = ['peachpuff', 'lightblue', 'thistle', 'darkseagreen']
 
     // Shuffle the colors
-    shuffle(colors);
+    shuffle(colors)
 
     // Grab the first one
-    return colors[0];
+    return colors[0]
 
 }
 
@@ -56,7 +57,14 @@ class Prompts extends React.Component {
         display: 'inline-block',
         alignItems: 'center',
         margin: '2rem 0',
-        padding: '2rem'
+        padding: '2rem',
+        promptChosen: false
+    }
+
+    handleClick = () => {
+        this.setState ({
+            promptChosen: true
+          })
     }
 
     render() {
@@ -64,13 +72,25 @@ class Prompts extends React.Component {
         return (
             <section className="container">
                 <About />
-                {this.props.prompts.map((element, i) => {
+                {/* {this.state.promptChosen ? 
+                this.props.prompts.map((element, i) => {
                     return (
                     <div className="columns" style={this.state} key={i} id={element.id}>
-                        <h5><strong><Link to={`prompts/${element.id}`}>{element.prompt}</Link></strong></h5>
+                        <h5><strong><Link to={`prompts/${element.id}`} onClick={this.handleClick}>{element.prompt}</Link></strong></h5>
+                    </div>
+                    )
+                })} */}
+                <ChosenPrompt />
+                    {/* :
+                    {this.state.promptChosen ? 
+                this.props.prompts.map((element, i) => {
+                    return (
+                    <div className="columns" style={this.state} key={i} id={element.id}>
+                        <h5><strong><Link to={`prompts/${element.id}`} onClick={this.handleClick}>{element.prompt}</Link></strong></h5>
                     </div>
                     )
                 })}
+                } */}
             </section>
         )
     }
