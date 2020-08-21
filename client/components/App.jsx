@@ -4,24 +4,9 @@ import Prompts from "./Prompts"
 import ChosenPrompt from "./ChosenPrompt"
 import AllEntries from "./AllEntries"
 import { HashRouter as Router, Route } from "react-router-dom"
-import { getPrompts } from "../apis/api"
 
-class App extends React.Component {
-  state = {
-    prompts: [],
-  }
+const App = () => {
 
-  componentDidMount = () => {
-    // console.log('no prompts')
-    getPrompts().then((prompts) => {
-      // console.log('got prompts')
-      this.setState({
-        prompts: prompts,
-      })
-    })
-  }
-
-  render() {
     return (
       <Router>
         <Route exact path="/" component={Home} />
@@ -29,19 +14,18 @@ class App extends React.Component {
           exact
           path="/prompts"
           render={(props) => {
-            return <Prompts {...props} prompts={this.state.prompts} />
+            return <Prompts />
           }}
         />
         <Route
           path="/prompts/:id"
           render={(props) => {
-            return <ChosenPrompt {...props} prompts={this.state.prompts} />
+            return <ChosenPrompt />
           }}
         />
         <Route exact path="/entries" component={AllEntries} />
       </Router>
     )
-  }
 }
 
 export default App

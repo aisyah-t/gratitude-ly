@@ -1,34 +1,30 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import About from "./About"
 import { Link } from "react-router-dom"
 import ChosenPrompt from "./ChosenPrompt"
-import { randomColor } from "../vanillajs/divstyle"
+import { getPrompts } from "../apis/api"
 
-class Prompts extends React.Component {
-  state = {
-    backgroundColor: randomColor(),
-    borderRadius: "10px",
-    height: "11rem",
-    display: "inline-block",
-    alignItems: "center",
-    margin: "2rem 0",
-    padding: "2rem",
-    promptChosen: false,
-  }
+const Prompts = () => {
+  // handleClick = () => {
+  //   this.setState({
+  //     promptChosen: true,
+  //   })
+  // }
+  const [prompts, setPrompts] = useState([])
 
-  handleClick = () => {
-    this.setState({
-      promptChosen: true,
+  useEffect(() => {
+    setPrompts([])
+    getPrompts().then(({ prompts }) => {
+      setPrompts(prompts)
     })
-  }
+    console.error[(prompts, setPrompts)]
+  })
 
-  render() {
-    // console.log(this.props)
-    return (
-      <main className="container">
-        <About />
-        <p>test</p>
-        {/* {this.state.promptChosen ? 
+  return (
+    <main className="six-columns">
+      <About />
+      <p>test</p>
+      {/* {this.state.promptChosen ? 
                 this.props.prompts.map((element, i) => {
                     return (
                     <div className="columns" style={this.state} key={i} id={element.id}>
@@ -36,8 +32,8 @@ class Prompts extends React.Component {
                     </div>
                     )
                 })} */}
-        {/* <ChosenPrompt /> */}
-        {/* :
+      {/* <ChosenPrompt /> */}
+      {/* :
                     {this.state.promptChosen ? 
                 this.props.prompts.map((element, i) => {
                     return (
@@ -47,9 +43,7 @@ class Prompts extends React.Component {
                     )
                 })}
                 } */}
-      </main>
-    )
-  }
+    </main>
+  )
 }
-
 export default Prompts
