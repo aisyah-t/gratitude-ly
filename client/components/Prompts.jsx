@@ -9,16 +9,12 @@ const Prompts = () => {
   //   this.setState({
   //     promptChosen: true,
   //   })
-  // }
-  const [prompts, setPrompts] = useState([])
+  const [prompts, setPrompts] = useState()
 
   useEffect(() => {
-    setPrompts([])
-    getPrompts().then(({ prompts }) => {
-      setPrompts(prompts)
-    })
-    console.error[(prompts, setPrompts)]
-  })
+    getPrompts().then((data) => setPrompts(data))
+    return prompts
+  }, [])
 
   return (
     <main className="six-columns">
