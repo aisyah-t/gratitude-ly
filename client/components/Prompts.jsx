@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { Link } from "react-router-dom"
 import About from "./About"
 import ChosenPrompt from "./ChosenPrompt"
-import { getPrompts } from "../apis/api"
 import { fetchPrompts } from "../hooks/prompts"
 
 const Prompts = () => {
@@ -13,11 +12,11 @@ const Prompts = () => {
   let prompts = fetchPrompts()
 
   return (
-    <main className="container">
+    <main className="container center top-margin">
       <About />
       {prompts.map((element, i) => {
         return (
-          <div className="eight offset-by-two columns" key={i} id={element.id}>
+          <div className="five offset-by-one columns prompt-card" key={i} id={element.id}>
             <h5>
               <strong>
                 <Link to={`prompts/${element.id}`}>{element.prompt}</Link>
