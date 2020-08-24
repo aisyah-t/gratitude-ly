@@ -6,11 +6,11 @@ export function getPrompts() {
   })
 }
 
-export function addEntry(entry) {
-  return request
-    .post("/api/prompts/:id")
-    .send(entry)
-    .then((req) => {
-      return req.body
-    })
-}
+// export function addEntry(entry) {
+//   return request
+//     .post("/api/prompts/:id")
+//     .send(entry)
+//     .then((req) => {
+//       return req.body
+//     })
+// }

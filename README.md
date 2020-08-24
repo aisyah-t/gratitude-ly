@@ -21,7 +21,7 @@ As a user, I want to:
 - see a list of all the prompts available for gratitude journalling.
 - choose a prompt from the list and then write my journal entry for the chosen prompt.
 - add an image to my journal entry.
-- edit an existing journal entry if I've made mistakes.
+- update an existing journal entry.
 - delete an entry I no longer want to keep.
 - add my own prompts.
 - review all my journal entries on one page for when I need reminders of the good things in life.
@@ -41,19 +41,97 @@ As a user, I want to:
 - Heroku/Netlify (for deployment)
 
 ---
+# Server-side
 
 ## Database
 
-TO BE ADDED
+### prompts (One-to-many)
+
+| Column Name | Data Type |
+| ----------- | --------- |
+| id          | Integer   |
+| prompt      | String    |
+| entry_id    | Integer   |
+
+### entries (One-to-many)
+
+| Column Name | Data Type |
+| ----------- | --------- |
+| id          | Integer   |
+| entry       | String    |
+| prompt_id   | Integer   |
+
+### users
+
+| Column Name | Data Type |
+| ----------- | --------- |
+| id          | Integer   |
+| username    | String    |
+| hash        | String    |
+
+### users_entries (many-to-many)
+
+| Column Name | Data Type |
+| ----------- | --------- |
+| id          | Integer   |
+| user_id     | String    |
+| prompt_id   | Integer   |
+| entry_id    | Integer   |
 
 ---
 
 ## API Endpoints
 
-TO BE ADDED
+TO BE UPDATED
+
+### Get all prompts from the prompts table
+
+**_GET_**
+
+### Get a prompt by providing a promptId
+
+**_GET_**
+
+### Add an entry by providing a promptId
+
+**_POST_**
+
+### Get all entries from the entries table
+
+**_GET_**
+
+### Update an entry by providing an entryId
+
+**_PATCH_**
+
+### Delete an entry by providing and entryId
+
+**_DELETE_**
 
 ---
+
+# Client-side
 
 ## Wireframes
 
 TO BE ADDED
+
+---
+
+## Components
+
+TO BE ADDED
+
+---
+
+## Context
+
+TO BE ADDED
+
+---
+
+# Hooks
+
+TOB BE ADDED 
+
+---
