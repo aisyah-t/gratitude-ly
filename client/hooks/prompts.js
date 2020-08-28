@@ -3,7 +3,7 @@ import { getPrompts } from "../apis/api"
 
 export function fetchPrompts() {
   const [prompts, setPrompts] = useState([])
-  const [error, setError] = useState("Sorry, ")
+  const [error, setError] = useState("Sorry, there isn't anything to display")
 
   useEffect(() => {
     getPrompts()

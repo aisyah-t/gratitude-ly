@@ -1,16 +1,22 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import React, { useState, useEffect } from "react"
 import About from "./About"
-import ChosenPrompt from "./ChosenPrompt"
-import { fetchPrompts } from "../hooks/prompts"
+import { Link } from "react-router-dom"
+import { getPrompts } from "../apis/api"
 import "materialize-css"
 
 const Prompts = () => {
-  // handleClick = () => {
-  //   this.setState({
-  //     promptChosen: true,
-  //   })
-  const promptsData = fetchPrompts()
+  const [promptsData, setPrompts] = useState([])
+  const [error, setError] = useState("Sorry, there isn't anything to display")
+
+  useEffect(() => {
+    getPrompts()
+      .then((data) => {
+        return setPrompts(data)
+      })
+      .catch((err) => {
+        setError(err)
+      })
+  }, [])
 
   return (
     <main className="container center top-margin">

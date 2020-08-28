@@ -6,6 +6,10 @@ export function getPrompts() {
   })
 }
 
+export function getChosenPrompt(chosenId) {
+  
+}
+
 export function addEntry(prompt, promptId) {
   return fetch(url + promptId, {
     method: "POST",

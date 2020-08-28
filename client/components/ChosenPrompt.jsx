@@ -1,22 +1,24 @@
-import React, { useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import AddEntry from "./AddEntry"
 import { useParams } from "react-router-dom"
-import { fetchPrompts } from "../hooks/prompts"
+import { getPrompts } from "../apis/api"
 
 const ChosenPrompt = () => {
+  const [chosenPrompt, setPrompt] = useState([])
+  const { id: chosenId } = useParams()
 
-  // render() {
-  //   let id = this.props.match.params.id
-  //   // console.log('PARAMS.MATCH.ID is: ' + id)
-  //   let chosen = this.props.prompts.find((prompt) => prompt.id == id)
-  //   // console.log('USER HAS CHOSEN PROMPT ID ' + chosen)
-
+  useEffect(() => {
+    getPrompts().then((data) => {
+      let chosen = data.find((prompt) => prompt.id == chosenId)
+      return setPrompt(chosen)
+    })
+  }, [])
 
   return (
     <section className="container">
-        <h5>
-          <strong>{chosen.prompt}</strong>
-        </h5>
+      <h5>
+        <strong>{chosenPrompt.prompt}</strong>
+      </h5>
       <AddEntry />
     </section>
   )
