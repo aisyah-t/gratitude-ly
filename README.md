@@ -20,27 +20,27 @@ As a user, I want to:
 - read a brief explanation of the purpose of and how to use the app.
 - see a list of all the prompts available for gratitude journalling.
 - choose a prompt from the list and then write my journal entry for the chosen prompt.
-- add an image to my journal entry.
+- review all my journal entries on one page for when I need reminders of the good things in life.
 - update an existing journal entry.
 - delete an entry I no longer want to keep.
 - add my own prompts.
-- review all my journal entries on one page for when I need reminders of the good things in life.
 
 ---
 
 ## Tech stack :gear: :computer:
 
 - React (with Hooks and Context)
-- Skeleton CSS (to change to Materialize CSS)
+- React-Materialize
 - Node.js
 - Express.js
 - Knex.js
 - Webpack
-- JWT OAuth
+- JWT Auth???
 - Jest
 - Heroku/Netlify (for deployment)
 
 ---
+
 # Server-side
 
 ## Database
@@ -53,13 +53,12 @@ As a user, I want to:
 | prompt      | String    |
 | entry_id    | Integer   |
 
-### entries (One-to-many)
+### entries
 
 | Column Name | Data Type |
 | ----------- | --------- |
 | id          | Integer   |
 | entry       | String    |
-| prompt_id   | Integer   |
 
 ### users
 
@@ -86,27 +85,96 @@ TO BE UPDATED
 
 ### Get all prompts from the prompts table
 
-**_GET_**
+**_GET_** /prompts
 
-### Get a prompt by providing a promptId
+Response Body:
 
-**_GET_**
+```JSON
+    [
+        {
+            "promptId": 1,
+            "prompt": "This is a prompt",
+        },
+        {
+            "promptId": 1,
+            "prompt": "Another prompt",
+        },
+    ]
+```
+
+### Get chosen prompt by providing a promptId
+
+**_GET_** /prompt/:promptId
+
+Response Body:
+
+```JSON
+    {
+            "promptId": 1,
+            "prompt": "This is a prompt",
+    }
+```
 
 ### Add an entry by providing a promptId
 
-**_POST_**
+**_POST_** /entries
+
+Response Body:
+
+```JSON
+    {
+        "promptId": 1,
+        "prompt": "Prompt text",
+        "entry": "Entry for prompt"
+    }
+```
 
 ### Get all entries from the entries table
 
-**_GET_**
+**_GET_** /entries
+
+Response Body:
+
+```JSON
+    [
+        {
+            "promptId": 1,
+            "prompt": "This is a prompt",
+            "entries" : [
+                {
+                    "entryId": 1,
+                    "entry": "An entry"
+                },
+                {
+                    "entryId": 2,
+                    "entry": "Another entry"
+                }
+            ]
+        },
+        {
+            "promptId": 2,
+            "prompt": "This is a prompt",
+            "entries" : [
+                {
+                    "entryId": 1,
+                    "entry": "An entry"
+                },
+                {
+                    "entryId": 2,
+                    "entry": "Another entry"
+                }
+            ]
+        }
+    ]
+```
 
 ### Update an entry by providing an entryId
 
-**_PATCH_**
+**_PATCH_** /entries/:entryId
 
 ### Delete an entry by providing and entryId
 
-**_DELETE_**
+**_DELETE_** /entries/:entryId
 
 ---
 
@@ -132,6 +200,6 @@ TO BE ADDED
 
 # Hooks
 
-TOB BE ADDED 
+TOB BE ADDED
 
 ---

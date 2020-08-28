@@ -11,27 +11,14 @@ const AddEntry = () => {
   //   //Need to figure out how to redirect to entries page so user can see entry has been added
   // }
 
-  // handleChange = (evt) => {
-  //   // console.log(this.state)
-  //   this.setState({
-  //     [evt.target.name]: evt.target.value,
-  //   })
-  // }
-
   return (
     <>
       <form className="container">
         <label></label>
-        <textarea
-          name="entry"
-          value={this.state.entry}
-          onChange={this.handleChange}
-        />
+        <textarea name="entry" value="" onChange={() => console.log(e.target.value)} />
       </form>
       <Link to="/entries">
-        <button onClick={this.handleClick} type="submit">
-          ADD ENTRY
-        </button>
+        <button type="submit">ADD ENTRY</button>
       </Link>
     </>
   )
