@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react"
 import AddEntry from "./AddEntry"
 import { useParams } from "react-router-dom"
 import { getPrompts } from "../apis/api"
+import "materialize-css"
+import { CardPanel } from "react-materialize"
 
 const ChosenPrompt = () => {
   const [chosenPrompt, setPrompt] = useState([])
@@ -15,12 +17,14 @@ const ChosenPrompt = () => {
   }, [])
 
   return (
-    <section className="container">
-      <h5>
-        <strong>{chosenPrompt.prompt}</strong>
-      </h5>
-      <AddEntry />
-    </section>
+        <div className="green">
+          <CardPanel>
+          <h5>
+            <strong>{chosenPrompt.prompt}</strong>
+          </h5>
+          </CardPanel>
+          <AddEntry />
+        </div>
   )
 }
 

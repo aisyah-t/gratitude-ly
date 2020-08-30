@@ -6,7 +6,6 @@ import AllEntries from "./AllEntries"
 import { HashRouter as Router, Route } from "react-router-dom"
 
 const App = () => {
-
   return (
     <Router>
       <Route exact path="/" component={Home} />

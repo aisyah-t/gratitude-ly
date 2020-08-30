@@ -1,22 +1,59 @@
 import React from "react"
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
+import "materialize-css"
+import { Slider, Slide, Caption, Button, Row, Col } from "react-materialize"
 
 const Home = () => {
   return (
-    <section className="container center top-margin">
-      <h1>Welcome to Gratitude-ly</h1>
-      <h5>Your personal prompt-based gratitude journal</h5>
-      <img
-        className="ten offset-by-one columns"
-        src="https://cdn11.bigcommerce.com/s-h5d6u1d2vw/images/stencil/2048x2048/uploaded_images/11-26-gratitude-blog-thumbnail.jpg?t=1574811777"
-        alt="5 of the Best Gratitude Journal Prompts"
-      />
-      <Link to="/prompts">
-        <button input="button" className="button top-margin">
-          GET STARTED: CHOOSE A PROMPT
-        </button>
-      </Link>
-    </section>
+    <Row className="container center">
+      <Col className="center" s={12} m={12} l={12} xl={12}>
+        <h2>Welcome to Gratitude-ly</h2>
+        <Slider
+          fullscreen={false}
+          options={{
+            duration: 2000,
+            height: 450,
+            indicators: true,
+            interval: 5000,
+          }}
+        >
+          <Slide
+            className="center"
+            image={
+              <img
+                alt="Background"
+                src="../../images/typewriter-801921_1920.jpg"
+              />
+            }
+          >
+            <Caption className="caption-backdrop">
+              <h5>
+                Gratitude-ly is your personal prompt-based gratitude journal.
+                Simply choose a prompt to add a journal entry and keep track of
+                the good things in life.
+              </h5>
+            </Caption>
+          </Slide>
+          <Slide
+            className="center"
+            image={
+              <img
+                alt="Background"
+                src="../../images/typewriter-801921_1920.jpg"
+              />
+            }
+          >
+            <Caption>
+              <Button large node="a" waves="teal" href="/#/prompts">
+                <strong>
+                  <h6>GET STARTED: CHOOSE A PROMPT</h6>
+                </strong>
+              </Button>
+            </Caption>
+          </Slide>
+        </Slider>
+      </Col>
+    </Row>
   )
 }
 
