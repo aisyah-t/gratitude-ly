@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react"
 import AddEntry from "./AddEntry"
 import { useParams } from "react-router-dom"
 import { getPrompts } from "../apis/api"
-import "materialize-css"
-import { CardPanel } from "react-materialize"
+
 
 const ChosenPrompt = () => {
   const [chosenPrompt, setPrompt] = useState([])

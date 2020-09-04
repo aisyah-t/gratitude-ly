@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { getPrompts } from "../apis/api"
-import "materialize-css"
-import { Slider, Slide, Caption, Row, Col } from "react-materialize"
+
 
 const Prompts = () => {
   const [promptsData, setPrompts] = useState([])
