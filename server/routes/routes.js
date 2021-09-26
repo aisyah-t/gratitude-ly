@@ -1,10 +1,10 @@
-const express = require('express')
-const db = require('../db/db')
-const router = express.Router()
+import { Router } from 'express'
+import { getPrompts, getEntries } from '../db/db'
+const router = Router()
 
 //Put backend routes here
 router.get('/prompts', (req, res) => {
-    db.getPrompts()
+    getPrompts()
         .then(prompts => {
             res.send(prompts)
         })
@@ -14,7 +14,7 @@ router.get('/prompts', (req, res) => {
 })
 
 router.get('/entries', (req, res) => {
-    db.getEntries()
+    getEntries()
         .then(entries => {
             res.send(entries)
         })
@@ -23,4 +23,4 @@ router.get('/entries', (req, res) => {
         })
 })
 
-module.exports = router
+export default router

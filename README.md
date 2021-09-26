@@ -8,7 +8,7 @@ When I was introduced to the concept of gratitude journal many years ago I strug
 
 I wanted to create _Gratitude-ly_ as a wellbeing tool for myself. When it's fully functioning I would also like to make it available for others to use.
 
-The project is still very much a work in progress. I will be exploring React Hooks and Context for this project and changing some of the functional and design features. I also plan on incorporating unit testing for this project.
+The project is still very much a work in progress (in other words, I keep changing my  mind the more I learn at work) - I  am changing some of the functional and design features. I plan  to explore GraphQL, MongoDB and React Context for this project.
 
 ---
 
@@ -29,14 +29,16 @@ As a user, I want to:
 
 ## Tech stack :gear: :computer:
 
-- React (with Hooks and Context)
-- React-Materialize
+- React (possibly with Context)
+- Chakra UI
+- GraphQL
 - Node.js
 - Express.js
-- Knex.js
+- MongoDB??
 - Webpack
-- JWT Auth???
+- JWT Auth??
 - Jest
+- React Testing Library
 - Heroku/Netlify (for deployment)
 
 ---
@@ -198,7 +200,7 @@ TO BE ADDED
 
 ---
 
-# Hooks
+# GraphQL
 
 TOB BE ADDED
 

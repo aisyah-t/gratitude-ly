@@ -1,10 +1,10 @@
-const path = require('path')
-const express = require('express')
-const routes = require('./routes/routes')
+import { join } from 'path'
+import express, { json, static } from 'express'
+import routes from './routes/routes'
 const server = express()
 
-server.use(express.json())
-server.use(express.static(path.join(__dirname, './public')))
+server.use(json())
+server.use(static(join(__dirname, './public')))
 server.use('/api', routes)
 
-module.exports = server
+export default server
